@@ -12,10 +12,12 @@ export type PackagedNamespacePaths = {
   desktopLogsRoot: string;
   electronSessionDataRoot: string;
   electronUserDataRoot: string;
+  headlessIdentityPath: string;
   logsRoot: string;
   namespaceRoot: string;
   resourceRoot: string;
   runtimeRoot: string;
+  webIdentityPath: string;
 };
 
 export function resolvePackagedNamespacePaths(
@@ -32,9 +34,11 @@ export function resolvePackagedNamespacePaths(
     desktopLogsRoot: join(namespaceRoot, "logs", APP_KEYS.DESKTOP),
     electronSessionDataRoot: join(namespaceRoot, "user-data", "session"),
     electronUserDataRoot: join(namespaceRoot, "user-data"),
+    headlessIdentityPath: join(namespaceRoot, "runtime", "headless-root.json"),
     logsRoot: join(namespaceRoot, "logs"),
     namespaceRoot,
     resourceRoot: config.resourceRoot,
     runtimeRoot: join(namespaceRoot, "runtime"),
+    webIdentityPath: join(namespaceRoot, "runtime", "web-root.json"),
   };
 }
